@@ -46,6 +46,7 @@ import static org.webrtc.SessionDescription.Type.ANSWER;
 import static org.webrtc.SessionDescription.Type.OFFER;
 
 public class CompleteActivity extends AppCompatActivity {
+    private static final String SERVER_ENDPOINT = "https://signaling-server-kiwg.onrender.com/";
     private static final String TAG = "CompleteActivity";
     private static final int RC_CALL = 111;
     public static final String VIDEO_TRACK_ID = "ARDAMSv0";
@@ -123,11 +124,8 @@ public class CompleteActivity extends AppCompatActivity {
 
     private void connectToSignallingServer() {
         try {
-            // For me this was "http://192.168.1.220:3000";
-            // $ hostname -I
-            String URL = "https://signaling-server-kiwg.onrender.com/";
-            Log.e(TAG, "REPLACE ME: IO Socket:" + URL);
-            socket = IO.socket(URL);
+            Log.e(TAG, "IO Socket:" + SERVER_ENDPOINT);
+            socket = IO.socket(SERVER_ENDPOINT);
 
             socket.on(EVENT_CONNECT, args -> {
                 Log.d(TAG, "connectToSignallingServer: connect");
