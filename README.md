@@ -1,2 +1,2 @@
 # webRTC-video-android
-Simple Android app that streams and receives video using WebRTC
+Simple Android app example that streams and receives video/audio using WebRTC
